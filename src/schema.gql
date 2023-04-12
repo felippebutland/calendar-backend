@@ -1,0 +1,24 @@
+type Event {
+    id: ID!
+    date: String!
+    title: String!
+    startTime: String!
+    endTime: String!
+}
+
+input NewEventInput {
+    date: String!
+    title: String!
+    startTime: String!
+    endTime: String!
+}
+
+type Query {
+    eventCalendar(id: ID!): Event
+    events: [Event!]!
+}
+
+type Mutation {
+    createEvent(newEventData: NewEventInput!): Event!
+    removeEvent(id: ID!): Boolean
+}
